@@ -9,62 +9,64 @@ namespace PingPong.Tests
   public class PingPongGeneratorTest : IDisposable
   {
     [TestMethod]
-    public void CountsTo_CountToNumber_Object()
+    public void CountsTo_CountsToNumber_ListOfObject()
     {
       //Arrange
-      List<object> fullCount = new List<object> {1, 2};
+      List<object> expected = new List<object> {1, 2};
+
+      //Act
       PingPongGenerator pingpong = new PingPongGenerator(2);
-
-      //Act
-      List<object> result = pingpong.GetList();
+      List<object> actual = pingpong.CountsTo();
 
       //Assert
-      CollectionAssert.AreEqual(fullCount, result);
+      CollectionAssert.AreEqual(expected, actual);
+      // CollectionAssert.AreEqual(expected, actual);
+
     }
 
     [TestMethod]
-    public void CountsTo_ThreeToPing_Object()
+    public void CountsTo_ThreeToPing_ListOfObject()
     {
       //Arrange
-      List<object> fullCount = new List<object> {1, 2, "ping"};
+      List<object> expected = new List<object> {1, 2, "ping"};
+
+      //Act
       PingPongGenerator pingpong = new PingPongGenerator(3);
-
-      //Act
-      List<object> result = pingpong.GetList();
+      List<object> actual = pingpong.CountsTo();
 
       //Assert
-      CollectionAssert.AreEqual(fullCount, result);
+      CollectionAssert.AreEqual(expected, actual);
     }
 
     [TestMethod]
-    public void CountsTo_FiveToPong_Object()
+    public void CountsTo_FiveToPong_ListOfObject()
     {
       //Arrange
-      List<object> fullCount = new List<object> {1, 2, "ping", 4, "pong"};
+      List<object> expected = new List<object> {1, 2, "ping", 4, "pong"};
+
+      //Act
       PingPongGenerator pingpong = new PingPongGenerator(5);
-
-      //Act
-      List<object> result = pingpong.GetList();
+      List<object> actual = pingpong.CountsTo();
 
       //Assert
-      CollectionAssert.AreEqual(fullCount, result);
+      CollectionAssert.AreEqual(expected, actual);
     }
 
     [TestMethod]
-    public void CountsTo_FifteenToPingPong_Object()
+    public void CountsTo_FifteenToPingPong_ListOfObject()
     {
       //Arrange
-      List<object> fullCount = new List<object> {1, 2, "ping", 4, "pong", "ping", 7, 8, "ping", "pong", 11, "ping", 13, 14, "ping-pong"};
-      PingPongGenerator pingpong = new PingPongGenerator(15);
+      List<object> expected = new List<object> {1, 2, "ping", 4, "pong", "ping", 7, 8, "ping", "pong", 11, "ping", 13, 14, "ping-pong"};
 
       //Act
-      List<object> result = pingpong.GetList();
-      for (int i = 0; i < result.Count; i++)
-      {
-        Console.WriteLine("Output: " + result[i]);
-      }
+      PingPongGenerator pingpong = new PingPongGenerator(15);
+      List<object> actual = pingpong.CountsTo();
+      // for (int i = 0; i < result.Count; i++)
+      // {
+      //   Console.WriteLine("Output: " + result[i]);
+      // }
       //Assert
-      CollectionAssert.AreEqual(fullCount, result);
+      CollectionAssert.AreEqual(expected, actual);
     }
 
     public void Dispose()

@@ -17,7 +17,7 @@ namespace PingPong.Controllers
       {
         PingPongGenerator.ClearAll();
         PingPongGenerator pingpong = new PingPongGenerator (int.Parse(Request.Form["inputNumber"]));
-        return View (pingpong.GetList());
+        return View (pingpong.CountsTo());
       }
       [HttpPost("/")]
       public ActionResult Clear()

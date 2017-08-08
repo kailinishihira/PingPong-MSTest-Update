@@ -10,7 +10,6 @@ namespace PingPong.Models
     public PingPongGenerator(int inputNumber)
     {
       _inputNumber = inputNumber;
-      _counts = PingPongGenerator.CountsTo(inputNumber);
     }
 
     public int GetInputNumber()
@@ -23,14 +22,9 @@ namespace PingPong.Models
       _inputNumber = newInputNumber;
     }
 
-    public List<object> GetList()
+    public  List<object> CountsTo()
     {
-      return _counts;
-    }
-
-    public static List<object> CountsTo(int index)
-    {
-      for (int i = 1; i <= index; i++)
+      for (int i = 1; i <= _inputNumber; i++)
       {
         if (i % 15 == 0)
         {
@@ -41,7 +35,7 @@ namespace PingPong.Models
         } else if (i % 5 == 0)
         {
           _counts.Add("pong");
-        } else
+        }  else
         {
           _counts.Add(i);
         }
